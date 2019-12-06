@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExperienciasActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/main_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#88B5D0"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="416dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="100dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_recycler_view"
+        tools:layout_editor_absoluteX="-5dp">
+
+        <Button
+            android:id="@+id/btnItinerario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corners_buttons3"
+            android:fontFamily="@font/winter"
+            android:onClick="onBtnItinerario"
+            android:text="Itinerario"
+            android:scaleType="fitCenter"/>
+
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="48dp"
+            android:background="@drawable/calendario"
+            android:scaleType="fitCenter">
+
+        </ImageView>
+
+        <Button
+            android:id="@+id/btnExperiencias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corners_buttons3"
+            android:fontFamily="@font/winter"
+            android:onClick="onExperiencias"
+            android:text="Crear experiencias"
+            android:scaleType="fitCenter"/>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

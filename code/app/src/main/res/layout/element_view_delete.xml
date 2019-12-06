@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/element_view_container"
+    android:layout_height="72dp"
+    android:layout_width="match_parent"
+    android:padding="16dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/titulo"
+        android:text="linea para el usuario"
+        android:textSize="17sp"
+        android:textColor="#000"
+        />
+
+    <TextView
+        android:id="@+id/descripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titulo"
+        android:layout_marginTop="1dp"
+        android:text="linea para el nombre y apellido"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/titulo"
+        android:layout_marginEnd="-126dp"
+        android:text="40 soles"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/winter"
+        android:text="Delete"
+        android:onClick="onBtnDeleteClicked"
+        android:layout_marginLeft="295dp"
+        android:textAlignment="center"
+        android:background="@drawable/corners_buttons2"
+        android:textColor="@android:color/black"/>
+
+
+</RelativeLayout>

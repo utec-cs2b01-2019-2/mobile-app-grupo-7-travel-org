@@ -1,0 +1,102 @@
+package cs2b01.utec.chat_mobile;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+
+public class CrearExperiencias extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_crear_experiencias);
+    }
+
+    public void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    public Activity getActivity(){
+        return this;
+    }
+
+    public void CrearExp(View view){
+        //1.  Getting username and password (from the view)
+        EditText txtTitulo = (EditText)findViewById(R.id.titulo);
+        EditText txtDescripcion = (EditText)findViewById(R.id.descripcion);
+        EditText txtPrecio = (EditText)findViewById(R.id.precio);
+        EditText txtCalificacion = (EditText)findViewById(R.id.calificacion);
+        final String titulo = txtTitulo.getText().toString();
+        String descripcion = txtDescripcion.getText().toString();
+        String Sprecio = txtPrecio.getText().toString();
+        int precio = Integer.parseInt(Sprecio);
+        String Scalificacion = txtCalificacion.getText().toString();
+        int calificacion = Integer.parseInt(Scalificacion);
+
+        //2.  Creating a message using user input
+        Map<String, Object> message = new HashMap<>();
+        message.put("titulo", titulo);
+        message.put("descripcion", descripcion);
+        message.put("calificacion", calificacion);
+        message.put("precio",precio);
+
+        //3.  Converting the message object to JSON string (jsonify)
+        JSONObject jsonMessage = new JSONObject(message);
+        //Toast.makeText(this,jsonMessage.toString(),Toast.LENGTH_LONG).show();
+
+        //4.  Sending json message to the server
+        //4.1. Install volley
+        //4.2. Create request object
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST,
+                "https://travelorg2.herokuapp.com/experiencias",
+                jsonMessage,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        //TODO Qué hacer cuando el server responda
+                        showMessage("Experiencia a "+titulo+" creada!!!");
+                        int user_id = getIntent().getExtras().getInt("user_id");
+                        String nombre = getIntent().getExtras().get("nombre").toString();
+                        goToExperienciasActivity(user_id,nombre);
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //TODO Qué hacer cuando ocurra un error
+                        showMessage("No fue creada!!!");
+                    }
+                }
+        );
+
+        //5. Send Request to the Server
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+
+    }
+
+    private void goToExperienciasActivity(int user_id,String nombre) {
+        Intent intent = new Intent(this, ExperienciasActivity.class);
+        intent.putExtra("user_id",user_id);
+        intent.putExtra("nombre",nombre);
+        startActivity(intent);
+    }
+}

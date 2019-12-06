@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#3880AC">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/papel"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@null"
+                android:layout_marginTop="75dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/calendar">
+            </ImageView>
+
+    </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/headson"
+            android:text="Bienvenido a Travel.org"
+            android:textColor="#000"
+            android:textSize="40dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="50sp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:background="@drawable/corners_buttons3"
+            android:fontFamily="@font/winter"
+            android:onClick="Go_register"
+            android:textSize="20sp"
+            android:text="Registrate">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="50sp"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:background="@drawable/corners_buttons3"
+            android:fontFamily="@font/winter"
+            android:onClick="Go_login"
+            android:textSize="20sp"
+            android:text="Ingresa a tu cuenta">
+        </TextView>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
+
